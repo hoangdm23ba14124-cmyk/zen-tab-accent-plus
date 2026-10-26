@@ -1,0 +1,7 @@
+[
+  {"property":"mod.ztap.right","label":"Move indicator to the right","type":"checkbox","defaultValue":false},
+  {"property":"mod.ztap.width","label":"Indicator width","type":"dropdown","defaultValue":"5px","options":[{"label":"Thin (3px)","value":"3px"},{"label":"Bold (5px)","value":"5px"},{"label":"Extra bold (7px)","value":"7px"}]},
+  {"property":"mod.ztap.color","label":"Active indicator color (CSS color)","type":"string","defaultValue":"#0047ff"},
+  {"property":"mod.ztap.hide-unloaded","label":"Hide white indicator on unloaded pinned / essential tabs","type":"checkbox","defaultValue":false},
+  {"property":"mod.ztap.double-click","label":"Double-click to unload pinned / essential tabs (requires companion)","type":"checkbox","defaultValue":true}
+]
