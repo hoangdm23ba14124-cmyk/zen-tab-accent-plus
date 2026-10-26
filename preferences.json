@@ -1,7 +1,10 @@
 [
   {"property":"mod.ztap.right","label":"Move indicator to the right","type":"checkbox","defaultValue":false},
   {"property":"mod.ztap.width","label":"Indicator width","type":"dropdown","defaultValue":"5px","options":[{"label":"Thin (3px)","value":"3px"},{"label":"Bold (5px)","value":"5px"},{"label":"Extra bold (7px)","value":"7px"}]},
-  {"property":"mod.ztap.color","label":"Active indicator color (CSS color)","type":"string","defaultValue":"#0047ff"},
-  {"property":"mod.ztap.hide-unloaded","label":"Hide white indicator on unloaded pinned tabs (excludes Essentials)","type":"checkbox","defaultValue":false},
+  {"property":"mod.ztap.color","label":"Indicator color (CSS color)","type":"string","defaultValue":"#0047ff"},
+  {"property":"mod.ztap.hide-loaded","label":"Hide accent on loaded pinned tabs (excludes Essentials)","type":"checkbox","defaultValue":false},
+  {"property":"mod.ztap.hide-unloaded","label":"Hide all indicators on unloaded pinned tabs (uncheck for white)","type":"checkbox","defaultValue":true},
+  {"property":"mod.ztap.hide-active","label":"Hide active indicator on regular tabs and Essentials","type":"checkbox","defaultValue":false},
+  {"property":"mod.ztap.hide-zoom","label":"Hide address-bar zoom percentage","type":"checkbox","defaultValue":true},
   {"property":"mod.ztap.double-click","label":"Double-click to unload pinned tabs only (requires companion)","type":"checkbox","defaultValue":true}
 ]

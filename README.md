@@ -1,13 +1,16 @@
 # Zen Tab Accent Plus
 
-Vạch active bên trái, không viền; vạch trắng cho pinned đã unload; double-click để unload và giữ pin. Vạch trắng và double-click không áp dụng cho Essential.
+Các tab pin còn được nạp đồng thời hiện màu nhấn bên trái, không viền; pin đã unload mặc định không hiện vạch. Double-click để unload và giữ pin. Trạng thái pin và double-click không áp dụng cho Essential.
 
 - Active: xanh đậm `#0047ff`, dày 5px, không viền hoặc bóng đổ quanh vạch.
-- Pin đang unload (`pending`): trắng, ngoại trừ Essential. Tab chỉ không được chọn nhưng vẫn đang chạy không có vạch trắng.
-- Ẩn nút phần trăm zoom ở thanh địa chỉ, giữ nguyên mức zoom của trang.
+- Pin còn được nạp (`pinned`, không `pending`, không Essential): luôn hiện màu nhấn, kể cả khi tab khác đang được chọn. “Được nạp” bao gồm cả trang đang tải và trang đã tải xong.
+- Pin đã unload (`pending`): mặc định không hiện vạch; có thể bật lại vạch trắng qua tùy chọn.
+- Có công tắc riêng để ẩn màu nhấn của pin đang nạp, ẩn vạch của pin unload, ẩn vạch active trên tab thường/Essential, và ẩn phần trăm zoom. Mức zoom trang không thay đổi.
 - Có tùy chọn đổi màu, độ dày, trái/phải và ẩn vạch trắng trong Settings → Zen Mods.
 - Companion bắt double-click chuột trái vào pin, gọi `gZenPinnedTabManager.onCloseTabShortcut` với `unload-switch`. Không xóa pin, không reset URL. Essential và tab thường giữ nguyên hành vi của Zen.
 - Tắt mod hoặc bỏ chọn “Double-click…” sẽ vô hiệu hóa thao tác này. Script cần được cài riêng vì Zen Mods chỉ chạy CSS.
+
+Trong Settings → Zen Mods, mặc định “Hide accent on loaded pinned tabs” bỏ chọn và “Hide all indicators on unloaded pinned tabs” được chọn. Bỏ chọn mục thứ hai để hiện lại vạch trắng. Các tùy chọn pin độc lập với “Hide active indicator on regular tabs and Essentials”. Khi nâng cấp từ bản cũ, Zen giữ giá trị tùy chọn đã lưu; hãy chọn lại “Hide all indicators…” nếu cần.
 
 ## Cài local vào Zen Mods
 

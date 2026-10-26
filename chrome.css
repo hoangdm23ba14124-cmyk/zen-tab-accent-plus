@@ -3,14 +3,16 @@
   --ztap-enabled: 1;
   --ztap-width: 5px;
   --ztap-color: var(--mod-ztap-color, #0047ff);
+  --ztap-active-content: "";
+  --ztap-loaded-content: "";
 }
 @media (-moz-pref("mod.ztap.width", "3px")) { :root { --ztap-width: 3px; } }
 @media (-moz-pref("mod.ztap.width", "7px")) { :root { --ztap-width: 7px; } }
 
 #tabbrowser-tabs .tabbrowser-tab .tab-background { position: relative; }
 #tabbrowser-tabs .tabbrowser-tab:is([selected], [visuallyselected]) .tab-background::after,
-#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending] .tab-background::after {
-  content: "" !important;
+#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) .tab-background::after {
+  content: var(--ztap-active-content) !important;
   position: absolute !important;
   left: 0 !important;
   right: auto !important;
@@ -26,15 +28,27 @@
   opacity: 1 !important;
   pointer-events: none !important;
 }
-#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending]:not([selected]):not([visuallyselected]) .tab-background::after {
+#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]):not([pending]) .tab-background::after {
+  content: var(--ztap-loaded-content) !important;
+}
+#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending] .tab-background::after {
+  content: "" !important;
   background: #fff !important;
+}
+@media (-moz-pref("mod.ztap.hide-active")) {
+  :root { --ztap-active-content: none; }
+}
+@media (-moz-pref("mod.ztap.hide-loaded")) {
+  :root { --ztap-loaded-content: none; }
 }
 @media (-moz-pref("mod.ztap.right")) {
   #tabbrowser-tabs .tabbrowser-tab .tab-background::after { left: auto !important; right: 0 !important; }
 }
 @media (-moz-pref("mod.ztap.hide-unloaded")) {
-  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending]:not([selected]):not([visuallyselected]) .tab-background::after { content: none !important; }
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending] .tab-background::after { content: none !important; }
 }
 
 /* Hide the address-bar zoom badge without changing the page's zoom level. */
-#urlbar-zoom-button { display: none !important; }
+@media (-moz-pref("mod.ztap.hide-zoom")) {
+  #urlbar-zoom-button { display: none !important; }
+}

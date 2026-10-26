@@ -1,5 +1,15 @@
 # Verification — 2026-10-26
 
+## Version 1.2.0
+
+Verified in disposable Zen 1.23.4b using computed styles:
+
+- Two loaded pinned tabs both show the accent while a separate regular tab is selected.
+- Pending pinned tab has no indicator with hide-unloaded enabled; Essential has no unloaded indicator.
+- Enabling hide-loaded hides both pin accents; disabling hide-unloaded restores a white indicator only on the pending pin.
+- Enabling hide-active hides the selected regular tab indicator independently of the pin options.
+- The existing zoom-hide rule is now controlled by hide-zoom. Double-click companion is unchanged from 1.1.0.
+
 ## Version 1.1.0
 
 Verified in a disposable Zen 1.23.4b profile with the updated stylesheet and companion:
