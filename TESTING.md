@@ -13,6 +13,8 @@ Verified through browser-chrome Marionette execution:
 - Local installer registers the mod. Zen initializes defaults and loads CSS after triggering the normal mods rebuild. Zen startup uses cached `zen-themes.css`, so the README requires one OFF/ON toggle after installation.
 - Installer unit tests pass: registry preservation, backup, old indicator disable, locked profile refusal, existing AutoConfig refusal.
 
-Not verified: actual physical mouse events, all third-party theme combinations, full Essential creation through its UI, Glance/Split View edge cases, Windows/Linux, and AutoConfig at app startup. The companion was loaded into browser chrome directly for behavior tests; the app bundle of the user's Zen was not modified.
+Follow-up installation verification: AutoConfig startup was tested successfully in the disposable profile after installing the loader into Zen.app. The loader uses the built-in Services global and loadSubScriptWithOptions with allowUnsafeURL restricted to the fixed local companion file. The cleanup function is present after a fresh browser launch, confirming the companion loaded automatically.
+
+Not verified: actual physical mouse events, all third-party theme combinations, full Essential creation through its UI, Glance/Split View edge cases, and Windows/Linux. Initial behavior tests loaded the companion directly; the follow-up above verifies startup loading.
 
 The companion uses a Zen internal API which can change in future releases. It checks for that API and otherwise does nothing. No production browsing data was used or published.
