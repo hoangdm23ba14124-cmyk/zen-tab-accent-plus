@@ -1,9 +1,9 @@
 {
   "id": "20eac560-4574-4efa-84a7-1a1d46455cd9",
   "name": "Zen Tab Accent Plus",
-  "description": "Bold left active indicator and white unloaded pin indicator. Optional double-click unload companion.",
+  "description": "Borderless active indicator, white unloaded pins (excluding Essentials), hidden zoom badge, and optional pinned-only double-click unload.",
   "author": "Hoangzxje",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "tags": ["tabs", "accessibility"],
   "createdAt": "2026-10-26",
   "updatedAt": "2026-10-26"

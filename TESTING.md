@@ -1,5 +1,17 @@
 # Verification — 2026-10-26
 
+## Version 1.1.0
+
+Verified in a disposable Zen 1.23.4b profile with the updated stylesheet and companion:
+
+- Active and unloaded-pin indicators: box-shadow none, border 0px, outline none.
+- Unloaded pin: white indicator. Unloaded Essential: no indicator.
+- Double-click handler calls the native unload function only for a pinned, non-Essential tab; Essential and regular tab events do not call it.
+- Native pinned-tab unload leaves the tab connected, pinned and pending.
+- Address-bar zoom badge computes display none; no zoom setting is changed.
+
+## Initial version 1.0.0 (historical)
+
 Tested on the locally installed Zen **1.23.4b / Firefox 158.0.1**, using a separate disposable profile. No personal browser profile was edited.
 
 Verified through browser-chrome Marionette execution:

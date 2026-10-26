@@ -1,11 +1,12 @@
 # Zen Tab Accent Plus
 
-Vạch active bên trái, rõ nét; vạch trắng cho pinned/essential đã unload; double-click để unload và giữ pin.
+Vạch active bên trái, không viền; vạch trắng cho pinned đã unload; double-click để unload và giữ pin. Vạch trắng và double-click không áp dụng cho Essential.
 
-- Active: xanh đậm `#0047ff`, dày 5px, viền sáng/tối để nhìn rõ trên nhiều nền.
-- Pin/Essential đang unload (`pending`): trắng. Tab chỉ không được chọn nhưng vẫn đang chạy không có vạch trắng.
+- Active: xanh đậm `#0047ff`, dày 5px, không viền hoặc bóng đổ quanh vạch.
+- Pin đang unload (`pending`): trắng, ngoại trừ Essential. Tab chỉ không được chọn nhưng vẫn đang chạy không có vạch trắng.
+- Ẩn nút phần trăm zoom ở thanh địa chỉ, giữ nguyên mức zoom của trang.
 - Có tùy chọn đổi màu, độ dày, trái/phải và ẩn vạch trắng trong Settings → Zen Mods.
-- Companion bắt double-click chuột trái vào pin/essential, gọi `gZenPinnedTabManager.onCloseTabShortcut` với `unload-switch`. Không xóa pin, không reset URL. Tab thường giữ nguyên hành vi của Zen.
+- Companion bắt double-click chuột trái vào pin, gọi `gZenPinnedTabManager.onCloseTabShortcut` với `unload-switch`. Không xóa pin, không reset URL. Essential và tab thường giữ nguyên hành vi của Zen.
 - Tắt mod hoặc bỏ chọn “Double-click…” sẽ vô hiệu hóa thao tác này. Script cần được cài riêng vì Zen Mods chỉ chạy CSS.
 
 ## Cài local vào Zen Mods

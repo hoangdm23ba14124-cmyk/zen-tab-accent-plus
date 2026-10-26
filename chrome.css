@@ -9,7 +9,7 @@
 
 #tabbrowser-tabs .tabbrowser-tab .tab-background { position: relative; }
 #tabbrowser-tabs .tabbrowser-tab:is([selected], [visuallyselected]) .tab-background::after,
-#tabbrowser-tabs .tabbrowser-tab:is([pinned], [zen-essential])[pending] .tab-background::after {
+#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending] .tab-background::after {
   content: "" !important;
   position: absolute !important;
   left: 0 !important;
@@ -20,16 +20,21 @@
   width: var(--ztap-width) !important;
   border-radius: 999px !important;
   background: var(--ztap-color) !important;
-  box-shadow: 0 0 0 1px rgb(0 0 0 / 55%), 0 0 0 2px rgb(255 255 255 / 65%) !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
   opacity: 1 !important;
   pointer-events: none !important;
 }
-#tabbrowser-tabs .tabbrowser-tab:is([pinned], [zen-essential])[pending]:not([selected]):not([visuallyselected]) .tab-background::after {
+#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending]:not([selected]):not([visuallyselected]) .tab-background::after {
   background: #fff !important;
 }
 @media (-moz-pref("mod.ztap.right")) {
   #tabbrowser-tabs .tabbrowser-tab .tab-background::after { left: auto !important; right: 0 !important; }
 }
 @media (-moz-pref("mod.ztap.hide-unloaded")) {
-  #tabbrowser-tabs .tabbrowser-tab:is([pinned], [zen-essential])[pending]:not([selected]):not([visuallyselected]) .tab-background::after { content: none !important; }
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending]:not([selected]):not([visuallyselected]) .tab-background::after { content: none !important; }
 }
+
+/* Hide the address-bar zoom badge without changing the page's zoom level. */
+#urlbar-zoom-button { display: none !important; }

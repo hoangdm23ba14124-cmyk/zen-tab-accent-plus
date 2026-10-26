@@ -11,7 +11,7 @@
     const target = event.target;
     if (target.closest?.("button, toolbarbutton, input, textarea, [contenteditable], .tab-close-button, .tab-icon-overlay, .tab-reset-button")) return;
     const tab = target.closest?.("tab.tabbrowser-tab");
-    if (!tab || !tab.pinned || tab.closing) return;
+    if (!tab || !tab.pinned || tab.hasAttribute("zen-essential") || tab.closing) return;
     if (typeof window.gZenPinnedTabManager?.onCloseTabShortcut !== "function") return;
     event.preventDefault();
     event.stopImmediatePropagation();
