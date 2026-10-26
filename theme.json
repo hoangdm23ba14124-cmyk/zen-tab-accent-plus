@@ -1,9 +1,9 @@
 {
   "id": "20eac560-4574-4efa-84a7-1a1d46455cd9",
   "name": "Zen Tab Accent Plus",
-  "description": "Simultaneous accents on loaded pins, optional white unloaded-pin indicators, and configurable active indicator, zoom badge and double-click unload.",
+  "description": "Configurable pin indicators, zoom badge, pinned-tab double-click unload and automatic fullscreen on window startup.",
   "author": "Hoangzxje",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "tags": ["tabs", "accessibility"],
   "createdAt": "2026-10-26",
   "updatedAt": "2026-10-26"

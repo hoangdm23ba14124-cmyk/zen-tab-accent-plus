@@ -6,5 +6,6 @@
   {"property":"mod.ztap.hide-unloaded","label":"Hide all indicators on unloaded pinned tabs (uncheck for white)","type":"checkbox","defaultValue":true},
   {"property":"mod.ztap.hide-active","label":"Hide active indicator on regular tabs and Essentials","type":"checkbox","defaultValue":false},
   {"property":"mod.ztap.hide-zoom","label":"Hide address-bar zoom percentage","type":"checkbox","defaultValue":true},
-  {"property":"mod.ztap.double-click","label":"Double-click to unload pinned tabs only (requires companion)","type":"checkbox","defaultValue":true}
+  {"property":"mod.ztap.double-click","label":"Double-click to unload pinned tabs only (requires companion)","type":"checkbox","defaultValue":true},
+  {"property":"mod.ztap.auto-fullscreen","label":"Automatically enter fullscreen when opening Zen (requires companion)","type":"checkbox","defaultValue":true}
 ]

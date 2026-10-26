@@ -1,5 +1,14 @@
 # Verification — 2026-10-26
 
+## Version 1.3.0
+
+Verified on macOS in disposable Zen 1.23.4b with the actual AutoConfig startup loader:
+
+- With auto-fullscreen enabled (default), a fresh launch reports window.fullScreen true and the one-time startup handler completed.
+- With auto-fullscreen disabled, a fresh launch reports window.fullScreen false and the startup handler completed without entering fullscreen.
+- Installer regression tests pass. Existing pin/double-click behavior is unchanged.
+- Fullscreen is requested once per normal browser window, after a 700ms restoration delay. Popup windows without a toolbar are excluded by the handler; popup behavior was not separately exercised.
+
 ## Version 1.2.0
 
 Verified in disposable Zen 1.23.4b using computed styles:

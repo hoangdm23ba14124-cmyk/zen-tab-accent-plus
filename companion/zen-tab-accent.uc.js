@@ -2,6 +2,14 @@
 (() => {
   if (location.href !== "chrome://browser/content/browser.xhtml") return;
   window.zenTabAccentCleanup?.();
+  // Let native window restoration finish before entering macOS fullscreen.
+  const fullscreenTimer = window.setTimeout(() => {
+    if (window.zenTabAccentStartupHandled) return;
+    window.zenTabAccentStartupHandled = true;
+    if (!Services.prefs.getBoolPref("mod.ztap.auto-fullscreen", true)) return;
+    if (getComputedStyle(document.documentElement).getPropertyValue("--ztap-enabled").trim() !== "1") return;
+    if (window.toolbar.visible && !window.fullScreen) window.fullScreen = true;
+  }, 700);
   const busy = new WeakSet();
   async function onDoubleClick(event) {
     if (event.button !== 0 || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
@@ -30,6 +38,7 @@
   // Capture before Zen's rename / default double-click handlers.
   window.addEventListener("dblclick", onDoubleClick, true);
   window.zenTabAccentCleanup = () => {
+    window.clearTimeout(fullscreenTimer);
     window.removeEventListener("dblclick", onDoubleClick, true);
     delete window.zenTabAccentCleanup;
   };

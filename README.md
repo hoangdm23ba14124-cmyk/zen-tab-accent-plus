@@ -9,6 +9,7 @@ Các tab pin còn được nạp đồng thời hiện màu nhấn bên trái, k
 - Có tùy chọn đổi màu, độ dày, trái/phải và ẩn vạch trắng trong Settings → Zen Mods.
 - Companion bắt double-click chuột trái vào pin, gọi `gZenPinnedTabManager.onCloseTabShortcut` với `unload-switch`. Không xóa pin, không reset URL. Essential và tab thường giữ nguyên hành vi của Zen.
 - Tắt mod hoặc bỏ chọn “Double-click…” sẽ vô hiệu hóa thao tác này. Script cần được cài riêng vì Zen Mods chỉ chạy CSS.
+- Tự vào toàn màn hình khi mở cửa sổ Zen thông thường. Bật/tắt bằng “Automatically enter fullscreen when opening Zen” (cần companion). Chỉ chạy một lần khi cửa sổ khởi động, nên bạn vẫn có thể thoát fullscreen và tiếp tục sử dụng cửa sổ bình thường. Thay đổi tùy chọn áp dụng cho cửa sổ mở sau đó; không ép cửa sổ hiện tại vào/thoát fullscreen. Không áp dụng cho cửa sổ popup không có toolbar.
 
 Trong Settings → Zen Mods, mặc định “Hide accent on loaded pinned tabs” bỏ chọn và “Hide all indicators on unloaded pinned tabs” được chọn. Bỏ chọn mục thứ hai để hiện lại vạch trắng. Các tùy chọn pin độc lập với “Hide active indicator on regular tabs and Essentials”. Khi nâng cấp từ bản cũ, Zen giữ giá trị tùy chọn đã lưu; hãy chọn lại “Hide all indicators…” nếu cần.
 
