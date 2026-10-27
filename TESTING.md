@@ -1,5 +1,18 @@
 # Verification — 2026-10-26
 
+## Version 1.4.0 — 2026-10-27
+
+Verified in a fresh Zen 1.23.4b profile with the user's enabled mod CSS and SuperPins preferences, without browsing data:
+
+- Reproduced the separate audio button next to the icon in the SuperPins grid.
+- Native audio overlay is 14×14px, positioned inside its own pin; separate audio button is hidden.
+- With three pins and zen-pinned-changed enabled, the icon stack remains the positioning anchor and badge stays inside its tab.
+- Clicking the native overlay sets both the tab's muted attribute and linkedBrowser.audioMuted.
+- A real Essential created with addToEssentials keeps its filled background while another tab is selected. Setting pending removes that fill.
+- Both new preferences restore native styling when disabled.
+- Visually inspected a browser screenshot with an inactive loaded Essential, selected pin and audio badge in light color scheme. Dark-scheme computed fill was checked as well.
+- Pending-state styling was exercised directly; live media playback and automatic memory-pressure unloading were not exercised.
+
 ## Version 1.3.0
 
 Verified on macOS in disposable Zen 1.23.4b with the actual AutoConfig startup loader:

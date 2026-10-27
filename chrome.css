@@ -52,3 +52,43 @@
 @media (-moz-pref("mod.ztap.hide-zoom")) {
   #urlbar-zoom-button { display: none !important; }
 }
+
+/* Use the native clickable overlay, anchored to this tab's favicon stack. */
+@media (-moz-pref("mod.ztap.compact-pin-audio")) {
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) .tab-icon-stack,
+  #navigator-toolbox[zen-sidebar-expanded="true"] #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) > .tab-stack > .tab-content > .tab-icon-stack {
+    position: relative !important;
+  }
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) .tab-audio-button {
+    display: none !important;
+  }
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) .tab-icon-overlay:not([crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
+    display: block !important;
+    position: absolute !important;
+    inset: auto !important;
+    top: -6px !important;
+    inset-inline-end: -6px !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 2px !important;
+    transform: none !important;
+    z-index: 2 !important;
+  }
+}
+
+/* Keep a loaded Essential highlighted even while another tab is selected. */
+@media (-moz-pref("mod.ztap.loaded-essentials")) {
+  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) .tab-background {
+    background: light-dark(rgba(255, 255, 255, 0.85), rgba(68, 64, 64, 0.85)) !important;
+    border: 2px solid color-mix(in srgb, var(--zen-primary-color) 25%, transparent) !important;
+    box-shadow: var(--tab-box-shadow-selected) !important;
+  }
+  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) .tab-background::before,
+  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) .tab-background::after {
+    content: none !important;
+  }
+}
