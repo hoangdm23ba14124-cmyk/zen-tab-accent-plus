@@ -12,6 +12,11 @@ Các tab pin còn được nạp đồng thời hiện màu nhấn bên trái, k
 - Tự vào toàn màn hình khi mở cửa sổ Zen thông thường. Bật/tắt bằng “Automatically enter fullscreen when opening Zen” (cần companion). Chỉ chạy một lần khi cửa sổ khởi động, nên bạn vẫn có thể thoát fullscreen và tiếp tục sử dụng cửa sổ bình thường. Thay đổi tùy chọn áp dụng cho cửa sổ mở sau đó; không ép cửa sổ hiện tại vào/thoát fullscreen. Không áp dụng cho cửa sổ popup không có toolbar.
 - “Small audio badge on pinned tab favicon”: biểu tượng âm thanh nhỏ 14px ở góc favicon của chính pin, thay cho nút âm thanh riêng có thể tràn sang ô kế bên trong SuperPins. Vẫn bấm mute/unmute được. Essential và tab thường giữ biểu tượng âm thanh native.
 - “Keep loaded Essentials highlighted until unloaded”: Essential còn được nạp giữ nền sáng kiểu selected kể cả khi bạn chuyển sang pin hoặc tab thường. Khi unload, trả về nền bình thường của theme. Hỗ trợ nền sáng/tối theo theme; không áp dụng double-click unload cho Essential.
+- “Small Glance badge inside pinned tab (SuperPins grid)”: Glance nằm ở góc dưới bên phải favicon, kích thước 14px, trong đúng ô pin; âm thanh ở góc trên để không chồng nhau. Chỉ điều chỉnh vị trí trong bố cục grid của SuperPins. Vạch nhấn/nền Essential chỉ tác động lên tab chủ, không lan xuống tab Glance lồng bên trong.
+
+### Giới hạn profile
+
+Mod này không biến container thành profile độc lập. Container trong cùng một profile Zen vẫn chia sẻ extension, lịch sử và kho mật khẩu. Cô lập đầy đủ đồng thời chuyển profile trong cùng cửa sổ như yêu cầu cần thay đổi kiến trúc/lõi trình duyệt, không được triển khai trong mod này. Xem [Zen Workspaces](https://docs.zen-browser.app/user-manual/workspaces) và [Mozilla profiles](https://support.mozilla.org/en-US/kb/profile-management).
 
 Trong Settings → Zen Mods, mặc định “Hide accent on loaded pinned tabs” bỏ chọn và “Hide all indicators on unloaded pinned tabs” được chọn. Bỏ chọn mục thứ hai để hiện lại vạch trắng. Các tùy chọn pin độc lập với “Hide active indicator on regular tabs and Essentials”. Khi nâng cấp từ bản cũ, Zen giữ giá trị tùy chọn đã lưu; hãy chọn lại “Hide all indicators…” nếu cần.
 

@@ -1,5 +1,13 @@
 # Verification — 2026-10-26
 
+## Version 1.5.0 — 2026-10-27
+
+- Opened a real about:blank Glance through ZenGlanceManager on a pinned tab in the SuperPins grid.
+- Checked Glance tab, stack, background, content and favicon bounds: all remain inside the parent pin, including a narrow 49px pin and zen-pinned-changed state. Badge is 14px and favicon 12px.
+- Parent audio badge and Glance badge are both 14px and do not overlap. Nested Glance has no inherited accent pseudo-element.
+- Switching to a regular tab and back preserves the attached Glance. Visually inspected an actual browser screenshot.
+- Profile isolation within one window is not implemented; no profile/container data migration was performed.
+
 ## Version 1.4.0 — 2026-10-27
 
 Verified in a fresh Zen 1.23.4b profile with the user's enabled mod CSS and SuperPins preferences, without browsing data:

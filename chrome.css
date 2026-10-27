@@ -9,9 +9,9 @@
 @media (-moz-pref("mod.ztap.width", "3px")) { :root { --ztap-width: 3px; } }
 @media (-moz-pref("mod.ztap.width", "7px")) { :root { --ztap-width: 7px; } }
 
-#tabbrowser-tabs .tabbrowser-tab .tab-background { position: relative; }
-#tabbrowser-tabs .tabbrowser-tab:is([selected], [visuallyselected]) .tab-background::after,
-#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) .tab-background::after {
+#tabbrowser-tabs .tabbrowser-tab > .tab-stack > .tab-background { position: relative; }
+#tabbrowser-tabs .tabbrowser-tab:not([zen-glance-tab]):is([selected], [visuallyselected]) > .tab-stack > .tab-background::after,
+#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]):not([zen-glance-tab]) > .tab-stack > .tab-background::after {
   content: var(--ztap-active-content) !important;
   position: absolute !important;
   left: 0 !important;
@@ -28,10 +28,10 @@
   opacity: 1 !important;
   pointer-events: none !important;
 }
-#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]):not([pending]) .tab-background::after {
+#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]):not([zen-glance-tab]):not([pending]) > .tab-stack > .tab-background::after {
   content: var(--ztap-loaded-content) !important;
 }
-#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending] .tab-background::after {
+#tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]):not([zen-glance-tab])[pending] > .tab-stack > .tab-background::after {
   content: "" !important;
   background: #fff !important;
 }
@@ -42,10 +42,10 @@
   :root { --ztap-loaded-content: none; }
 }
 @media (-moz-pref("mod.ztap.right")) {
-  #tabbrowser-tabs .tabbrowser-tab .tab-background::after { left: auto !important; right: 0 !important; }
+  #tabbrowser-tabs .tabbrowser-tab:not([zen-glance-tab]) > .tab-stack > .tab-background::after { left: auto !important; right: 0 !important; }
 }
 @media (-moz-pref("mod.ztap.hide-unloaded")) {
-  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential])[pending] .tab-background::after { content: none !important; }
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]):not([zen-glance-tab])[pending] > .tab-stack > .tab-background::after { content: none !important; }
 }
 
 /* Hide the address-bar zoom badge without changing the page's zoom level. */
@@ -55,14 +55,14 @@
 
 /* Use the native clickable overlay, anchored to this tab's favicon stack. */
 @media (-moz-pref("mod.ztap.compact-pin-audio")) {
-  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) .tab-icon-stack,
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) > .tab-stack > .tab-content > .tab-icon-stack,
   #navigator-toolbox[zen-sidebar-expanded="true"] #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) > .tab-stack > .tab-content > .tab-icon-stack {
     position: relative !important;
   }
-  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) .tab-audio-button {
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) > .tab-stack > .tab-content > .tab-audio-button {
     display: none !important;
   }
-  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) .tab-icon-overlay:not([crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) > .tab-stack > .tab-content > .tab-icon-stack > .tab-icon-overlay:not([crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
     display: block !important;
     position: absolute !important;
     inset: auto !important;
@@ -82,13 +82,59 @@
 
 /* Keep a loaded Essential highlighted even while another tab is selected. */
 @media (-moz-pref("mod.ztap.loaded-essentials")) {
-  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) .tab-background {
+  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) > .tab-stack > .tab-background {
     background: light-dark(rgba(255, 255, 255, 0.85), rgba(68, 64, 64, 0.85)) !important;
     border: 2px solid color-mix(in srgb, var(--zen-primary-color) 25%, transparent) !important;
     box-shadow: var(--tab-box-shadow-selected) !important;
   }
-  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) .tab-background::before,
-  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) .tab-background::after {
+  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) > .tab-stack > .tab-background::before,
+  #tabbrowser-tabs .tabbrowser-tab[zen-essential]:not([pending]) > .tab-stack > .tab-background::after {
     content: none !important;
+  }
+}
+
+/* SuperPins centers the favicon in its grid; keep the native Glance tab in that cell. */
+@media (-moz-pref("mod.ztap.compact-pin-glance")) and (-moz-pref("uc.pins.legacy-layout")) {
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]):not([zen-glance-tab]) > .tab-stack > .tab-content {
+    position: relative !important;
+  }
+  #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]) > .tab-stack > .tab-content > .tabbrowser-tab[zen-glance-tab] {
+    position: absolute !important;
+    inset: auto !important;
+    left: calc(50% + 3px) !important;
+    top: calc(50% + 2px) !important;
+    width: 14px !important;
+    height: 14px !important;
+    min-width: 14px !important;
+    min-height: 14px !important;
+    max-width: 14px !important;
+    max-height: 14px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    z-index: 3 !important;
+    --tab-min-height: 14px;
+    --tab-min-width: 14px;
+  }
+  #tabbrowser-tabs .tabbrowser-tab[zen-glance-tab] > .tab-stack > .tab-content {
+    padding: 1px !important;
+    height: 14px !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+  }
+  #tabbrowser-tabs .tabbrowser-tab[zen-glance-tab] > .tab-stack > .tab-content > .tab-icon-stack {
+    margin: 0 !important;
+    transform: none !important;
+  }
+  #tabbrowser-tabs .tabbrowser-tab[zen-glance-tab] :is(.tab-icon-image, .tab-icon-pending, .tab-throbber) {
+    width: 12px !important;
+    height: 12px !important;
+    margin: 0 !important;
+  }
+  #tabbrowser-tabs .tabbrowser-tab[zen-glance-tab] > .tab-stack > .tab-background {
+    min-height: 0 !important;
+    height: 14px !important;
+    border: none !important;
+    border-radius: 4px !important;
   }
 }

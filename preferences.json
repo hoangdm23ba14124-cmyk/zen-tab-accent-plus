@@ -9,5 +9,6 @@
   {"property":"mod.ztap.double-click","label":"Double-click to unload pinned tabs only (requires companion)","type":"checkbox","defaultValue":true},
   {"property":"mod.ztap.auto-fullscreen","label":"Automatically enter fullscreen when opening Zen (requires companion)","type":"checkbox","defaultValue":true},
   {"property":"mod.ztap.compact-pin-audio","label":"Small audio badge on pinned tab favicon","type":"checkbox","defaultValue":true},
-  {"property":"mod.ztap.loaded-essentials","label":"Keep loaded Essentials highlighted until unloaded","type":"checkbox","defaultValue":true}
+  {"property":"mod.ztap.loaded-essentials","label":"Keep loaded Essentials highlighted until unloaded","type":"checkbox","defaultValue":true},
+  {"property":"mod.ztap.compact-pin-glance","label":"Small Glance badge inside pinned tab (SuperPins grid)","type":"checkbox","defaultValue":true}
 ]
