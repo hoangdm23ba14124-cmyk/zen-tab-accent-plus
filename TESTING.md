@@ -1,5 +1,14 @@
 # Verification — 2026-10-26
 
+## Version 1.6.0 — 2026-10-27
+
+- In the SuperPins grid, the selected pin, background pin and changed-URL pin favicon centers differ from their cell centers by less than 0.01px horizontally and 0px vertically.
+- Opened a real Glance and set audio-playing state: both 14px badges sit above the favicon, inside the same pin, and do not overlap. Inspected the resulting screenshot.
+- Reproduced the orange right-hand stripe using a real userContextId=2 tab: native .tab-context-line, rgb(255,159,0), 3px wide. Preserved it as requested.
+- Reordered double-click filtering so computed styles are read only for eligible pinned tabs.
+- Reloaded the companion 25 times: exactly one mod double-click listener and one mod unload listener remain. Cleanup now removes its previous unload listener too.
+- Six alternating enabled/disabled samples with 21 blank tabs are documented in PERFORMANCE.md; this is not a long-duration leak test or a real-website workload benchmark.
+
 ## Version 1.5.0 — 2026-10-27
 
 - Opened a real about:blank Glance through ZenGlanceManager on a pinned tab in the SuperPins grid.

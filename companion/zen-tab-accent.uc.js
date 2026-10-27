@@ -14,12 +14,12 @@
   async function onDoubleClick(event) {
     if (event.button !== 0 || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
     if (!Services.prefs.getBoolPref("mod.ztap.double-click", true)) return;
-    // Follow the actual stylesheet, so disabling the Zen Mod also disables this script.
-    if (getComputedStyle(document.documentElement).getPropertyValue("--ztap-enabled").trim() !== "1") return;
     const target = event.target;
     if (target.closest?.("button, toolbarbutton, input, textarea, [contenteditable], .tab-close-button, .tab-icon-overlay, .tab-reset-button")) return;
     const tab = target.closest?.("tab.tabbrowser-tab");
     if (!tab || !tab.pinned || tab.hasAttribute("zen-essential") || tab.closing) return;
+    // Only read computed style for a relevant pin, not every double-click in the UI.
+    if (getComputedStyle(document.documentElement).getPropertyValue("--ztap-enabled").trim() !== "1") return;
     if (typeof window.gZenPinnedTabManager?.onCloseTabShortcut !== "function") return;
     event.preventDefault();
     event.stopImmediatePropagation();
@@ -40,6 +40,7 @@
   window.zenTabAccentCleanup = () => {
     window.clearTimeout(fullscreenTimer);
     window.removeEventListener("dblclick", onDoubleClick, true);
+    window.removeEventListener("unload", window.zenTabAccentCleanup);
     delete window.zenTabAccentCleanup;
   };
   window.addEventListener("unload", window.zenTabAccentCleanup, { once: true });

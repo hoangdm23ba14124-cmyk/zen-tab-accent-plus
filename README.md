@@ -12,7 +12,8 @@ Các tab pin còn được nạp đồng thời hiện màu nhấn bên trái, k
 - Tự vào toàn màn hình khi mở cửa sổ Zen thông thường. Bật/tắt bằng “Automatically enter fullscreen when opening Zen” (cần companion). Chỉ chạy một lần khi cửa sổ khởi động, nên bạn vẫn có thể thoát fullscreen và tiếp tục sử dụng cửa sổ bình thường. Thay đổi tùy chọn áp dụng cho cửa sổ mở sau đó; không ép cửa sổ hiện tại vào/thoát fullscreen. Không áp dụng cho cửa sổ popup không có toolbar.
 - “Small audio badge on pinned tab favicon”: biểu tượng âm thanh nhỏ 14px ở góc favicon của chính pin, thay cho nút âm thanh riêng có thể tràn sang ô kế bên trong SuperPins. Vẫn bấm mute/unmute được. Essential và tab thường giữ biểu tượng âm thanh native.
 - “Keep loaded Essentials highlighted until unloaded”: Essential còn được nạp giữ nền sáng kiểu selected kể cả khi bạn chuyển sang pin hoặc tab thường. Khi unload, trả về nền bình thường của theme. Hỗ trợ nền sáng/tối theo theme; không áp dụng double-click unload cho Essential.
-- “Small Glance badge inside pinned tab (SuperPins grid)”: Glance nằm ở góc dưới bên phải favicon, kích thước 14px, trong đúng ô pin; âm thanh ở góc trên để không chồng nhau. Chỉ điều chỉnh vị trí trong bố cục grid của SuperPins. Vạch nhấn/nền Essential chỉ tác động lên tab chủ, không lan xuống tab Glance lồng bên trong.
+- “Small Glance badge above pinned favicon (SuperPins grid)”: Glance nằm ở góc trên bên phải favicon, kích thước 14px, trong đúng ô pin. Khi có cả Glance và âm thanh, âm thanh chuyển sang góc trên bên trái để không chồng nhau. Chỉ điều chỉnh vị trí trong bố cục grid của SuperPins. Vạch nhấn/nền Essential chỉ tác động lên tab chủ, không lan xuống tab Glance lồng bên trong.
+- “Center pinned favicons in their cells (SuperPins grid)”: căn chính giữa favicon của từng pin bằng flex alignment, bỏ margin lệch của SuperPins/Zen. Vạch màu cam ở mép phải là chỉ báo container native và được giữ nguyên; không phải lỗi của vạch nhấn xanh.
 
 ### Giới hạn profile
 
@@ -64,6 +65,8 @@ git push -u origin main
 ```
 
 ## Kiểm tra
+
+Xem [PERFORMANCE.md](PERFORMANCE.md) và [performance-results.json](performance-results.json) cho phép đo RAM và chi phí đổi tab của bản 1.6.0. Script không có vòng lặp polling hay timer lặp: một timer fullscreen lúc mở cửa sổ và một listener double-click dùng chung. Listener được dọn khi đóng cửa sổ hoặc nạp lại script.
 
 ```sh
 python3 -m unittest discover -s tests -v

@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-27",
+  "browser": "1.23.4b",
+  "scope": "Parent process only; headless disposable profile; other mods retained; blank tabs",
+  "samples": [
+    {
+      "resident": 551518208,
+      "heap": 184443088,
+      "tabs": 21,
+      "enabled": false,
+      "cssEnabled": false,
+      "switch60_ms": 56.28016666666372
+    },
+    {
+      "resident": 552009728,
+      "heap": 184372720,
+      "tabs": 21,
+      "enabled": true,
+      "cssEnabled": true,
+      "switch60_ms": 51.426208333316026
+    },
+    {
+      "resident": 552206336,
+      "heap": 184626768,
+      "tabs": 21,
+      "enabled": true,
+      "cssEnabled": true,
+      "switch60_ms": 49.2012916666572
+    },
+    {
+      "resident": 551632896,
+      "heap": 184158464,
+      "tabs": 21,
+      "enabled": false,
+      "cssEnabled": false,
+      "switch60_ms": 44.60962499998277
+    },
+    {
+      "resident": 551813120,
+      "heap": 184148432,
+      "tabs": 21,
+      "enabled": false,
+      "cssEnabled": false,
+      "switch60_ms": 43.98579166663694
+    },
+    {
+      "resident": 552157184,
+      "heap": 184422000,
+      "tabs": 21,
+      "enabled": true,
+      "cssEnabled": true,
+      "switch60_ms": 51.186000000016065
+    }
+  ],
+  "listeners_after_25_reloads": {
+    "doubleClick": 1,
+    "cleanup": 1
+  }
+}
