@@ -48,6 +48,142 @@
   #tabbrowser-tabs .tabbrowser-tab[pinned]:not([zen-essential]):not([zen-glance-tab])[pending] > .tab-stack > .tab-background::after { content: none !important; }
 }
 
+/* Fixed columns keep an incomplete last row from changing the whole grid. */
+:root { --ztap-pin-columns: 3; }
+@media (-moz-pref("mod.ztap.pin-columns", "1")) { :root { --ztap-pin-columns: 1; } }
+@media (-moz-pref("mod.ztap.pin-columns", "2")) { :root { --ztap-pin-columns: 2; } }
+@media (-moz-pref("mod.ztap.pin-columns", "4")) { :root { --ztap-pin-columns: 4; } }
+@media (-moz-pref("mod.ztap.pin-columns", "5")) { :root { --ztap-pin-columns: 5; } }
+@media (-moz-pref("mod.ztap.pin-columns", "6")) { :root { --ztap-pin-columns: 6; } }
+@media (-moz-pref("uc.pins.legacy-layout")) and (not (-moz-pref("mod.ztap.pin-columns", "auto"))) {
+  #navigator-toolbox[zen-sidebar-expanded="true"] #tabbrowser-tabs .zen-workspace-pinned-tabs-section:not([hidden]):not(:has([zen-dragtarget], zen-folder .tab-group-label-container[zen-dragtarget])) {
+    & {
+      display: grid !important;
+      grid-template-columns: repeat(var(--ztap-pin-columns), minmax(0, 1fr)) !important;
+      grid-auto-flow: row !important;
+      writing-mode: horizontal-tb !important;
+      block-size: auto !important;
+    }
+    & > .tabbrowser-tab[pinned] {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    & > :is(zen-folder, tab-group) { grid-column: 1 / -1 !important; }
+  }
+}
+
+:root { --ztap-folder-columns: 3; }
+@media (-moz-pref("mod.ztap.folder-columns", "1")) { :root { --ztap-folder-columns: 1; } }
+@media (-moz-pref("mod.ztap.folder-columns", "2")) { :root { --ztap-folder-columns: 2; } }
+@media (-moz-pref("mod.ztap.folder-columns", "4")) { :root { --ztap-folder-columns: 4; } }
+@media (-moz-pref("mod.ztap.folder-columns", "5")) { :root { --ztap-folder-columns: 5; } }
+@media (-moz-pref("mod.ztap.folder-columns", "6")) { :root { --ztap-folder-columns: 6; } }
+@media (-moz-pref("uc.pins.legacy-layout")) and (not (-moz-pref("mod.ztap.folder-columns", "auto"))) {
+  #navigator-toolbox[zen-sidebar-expanded="true"] #tabbrowser-tabs .zen-workspace-pinned-tabs-section:not(:has([zen-dragtarget], zen-folder .tab-group-label-container[zen-dragtarget])) zen-folder:not([collapsed]) > .tab-group-container {
+    display: grid !important;
+    grid-template-columns: repeat(var(--ztap-folder-columns), minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    writing-mode: horizontal-tb !important;
+    block-size: auto !important;
+    & > .tabbrowser-tab[pinned] {
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
+    & > :is(zen-folder, tab-group) { grid-column: 1 / -1 !important; }
+  }
+}
+
+/* Sixty tracks divide evenly into 1–6 cells; zero track gap avoids tiny-track overflow. */
+@media (-moz-pref("uc.pins.legacy-layout")) {
+  #navigator-toolbox[zen-sidebar-expanded="true"] #tabbrowser-tabs :is(.zen-workspace-pinned-tabs-section[ztap-custom-row-group]:not([hidden]), .zen-workspace-pinned-tabs-section zen-folder:not([collapsed]) > .tab-group-container[ztap-custom-row-group]):not(:has([zen-dragtarget], zen-folder .tab-group-label-container[zen-dragtarget])) {
+    & {
+      display: grid !important;
+      grid-template-columns: repeat(60, minmax(0, 1fr)) !important;
+      grid-auto-flow: row !important;
+      gap: 3px 0 !important;
+      writing-mode: horizontal-tb !important;
+      block-size: auto !important;
+    }
+    & > :is(zen-folder, tab-group) { grid-column: 1 / -1 !important; }
+    & > .tabbrowser-tab[ztap-row-size] {
+      --ztap-row-span: 60;
+      &[ztap-row-size="2"] { --ztap-row-span: 30; }
+      &[ztap-row-size="3"] { --ztap-row-span: 20; }
+      &[ztap-row-size="4"] { --ztap-row-span: 15; }
+      &[ztap-row-size="5"] { --ztap-row-span: 12; }
+      &[ztap-row-size="6"] { --ztap-row-span: 10; }
+      grid-column: span var(--ztap-row-span) !important;
+      &[ztap-row-start] { grid-column: 1 / span var(--ztap-row-span) !important; }
+      width: 100% !important;
+      min-width: 0 !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      border-inline: 2px solid transparent !important;
+    }
+  }
+}
+
+/* Per-tab row override: works with both SuperPins grid and auto-grow flex. */
+@media (-moz-pref("uc.pins.legacy-layout")) {
+  #navigator-toolbox[zen-sidebar-expanded="true"] #tabbrowser-tabs .tabbrowser-tab[pinned][ztap-normal-pin]:not([zen-essential]):not([zen-glance-tab]) {
+    grid-column: 1 / -1 !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    --tab-min-height: 36px;
+    & > .tab-stack > .tab-content {
+      justify-content: flex-start !important;
+      padding-inline: 10px !important;
+      gap: 8px !important;
+      & > .tab-label-container {
+        display: flex !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        &.tab-label-container-editing { display: none !important; }
+        &.tab-editor-container {
+          & > #tab-label-input {
+            width: 100% !important;
+            min-width: 0 !important;
+            box-sizing: border-box !important;
+          }
+        }
+      }
+      & > .tab-icon-stack {
+        position: relative !important;
+        margin: 0 !important;
+        transform: none !important;
+        flex-shrink: 0 !important;
+      }
+      & > .tabbrowser-tab[zen-glance-tab] {
+        inset-inline-start: 24px !important;
+      }
+    }
+  }
+}
+
+/* Native Cmd/Ctrl-click and Shift-click selection, visible in grid and list layouts. */
+@media not (-moz-pref("mod.ztap.hide-pin-selection")) {
+  #navigator-toolbox #tabbrowser-tabs .tabbrowser-tab[pinned][multiselected="true"]:not([zen-essential]):not([zen-glance-tab]) > .tab-stack > .tab-background {
+    outline: 2px solid var(--ztap-color) !important;
+    outline-offset: -2px !important;
+    background-color: color-mix(in srgb, var(--ztap-color) 22%, var(--toolbar-bgcolor, Canvas)) !important;
+  }
+}
+
+/* Only hide the native container stripe, preserving container identity/state. */
+@media not (-moz-pref("mod.ztap.show-container-stripe")) {
+  #tabbrowser-tabs .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+    display: none !important;
+  }
+}
+
 /* Hide the address-bar zoom badge without changing the page's zoom level. */
 @media (-moz-pref("mod.ztap.hide-zoom")) {
   #urlbar-zoom-button { display: none !important; }

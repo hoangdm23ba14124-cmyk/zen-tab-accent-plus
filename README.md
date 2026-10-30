@@ -1,6 +1,24 @@
 # Zen Tab Accent Plus
 
-Các tab pin còn được nạp đồng thời hiện màu nhấn bên trái, không viền; pin đã unload mặc định không hiện vạch. Double-click để unload và giữ pin. Trạng thái pin và double-click không áp dụng cho Essential.
+Bản 1.12.1 mặc định tự giãn hàng chưa đủ ô: 5 pin với 3 cột thành 3+2, hai pin cuối mỗi pin chiếm nửa hàng. Áp dụng cho vùng pin chính, folder, mẫu từng hàng và hàng bị ngắt bởi pin dạng hàng/thư mục. Tắt “Tự giãn pin lấp đầy hàng chưa đủ ô” để giữ độ rộng cố định. Chế độ số cột “Tự động theo SuperPins” không có mẫu riêng vẫn do SuperPins quyết định. Cần khởi động lại Zen để nạp companion.
+
+Bản 1.12.0 tách cài đặt “Vùng pin chính” và “Trong folder”, mỗi nhóm có số cột chung và mẫu từng hàng độc lập. Mẫu pin cũ chỉ áp dụng ngoài folder; folder mặc định 3 cột. Mẫu folder bắt đầu lại từ đầu trong mỗi folder, kể cả folder con. Không thay đổi trạng thái thu gọn folder. Khởi động lại để nạp companion mới.
+
+Bản 1.11.1: double-click tiêu đề pin dạng hàng mở trình đổi tên gốc của Zen; Enter lưu, Escape hủy. Double-click biểu tượng vẫn unload. Có thể dùng mục đổi tên trong menu chuột phải của Zen. Cần bật tùy chọn đổi tên tab của Zen và không bật đóng tab bằng double-click để dùng thao tác double-click đổi tên.
+
+Bản 1.11.0: nhập “Số pin từng hàng” như `3,2,4` để đặt số ô riêng cho mỗi hàng (1–6 ô/hàng, tối đa 50 hàng khai báo). Những hàng tiếp theo lặp số cuối; để trống hoặc nhập sai định dạng thì dùng số cột chung. Mẫu áp dụng từ đầu cho từng workspace/thư mục. Pin dạng hàng và thư mục ngắt hàng ô; không đổi thứ tự tab. Cần khởi động lại Zen để nạp companion mới; sau đó thay mẫu có hiệu lực trực tiếp. Chỉ cập nhật theo thay đổi tab/cài đặt, không dùng polling.
+
+Bản 1.10.0 thêm “Số pin mỗi hàng (SuperPins)”: mặc định 3, chọn 1–6 hoặc tự động theo SuperPins. Với 5 pin và 3 cột, hàng đầu có 3 ô, hàng cuối có 2 ô giữ cùng kích thước. Pin được chọn hiển thị dạng hàng vẫn chiếm toàn hàng tại đúng vị trí của nó. Chỉ áp dụng khi sidebar mở rộng và SuperPins legacy layout bật; lựa chọn cố định ưu tiên hơn auto-grow của SuperPins. Chọn tự động để trả lại bố cục SuperPins.
+
+Bản 1.9.0: chuột phải từng pin → “Hiển thị pin dạng hàng” để hiện cả tiêu đề và chiếm một hàng; bỏ chọn để trở lại ô SuperPins. Cần companion và SuperPins legacy layout. Lựa chọn lưu qua SessionStore theo tab, hoạt động trong grid và auto-grow; sidebar thu gọn vẫn dùng giao diện gọn. Không thay đổi thứ tự tab hoặc áp dụng cho Essential/Glance. Khởi động lại Zen sau khi cập nhật companion.
+
+Bản 1.8.0 làm rõ nhóm pin được chọn bằng viền 2px và nền màu nhấn, hỗ trợ SuperPins và pin dạng danh sách. Dùng Cmd+click trên macOS (Ctrl+click trên Windows/Linux) để thêm/bỏ từng tab, Shift+click để chọn một dải theo thứ tự tab, click thường để bỏ chọn nhóm. Dùng thao tác chọn nhiều sẵn có của Zen, không thêm listener hay bộ đếm JavaScript. Có thể tắt phần trang trí qua “Hide enhanced multi-selection highlight on pinned tabs”. Không áp dụng trang trí này cho Essential hoặc Glance.
+
+Bản 1.7.4 mặc định ẩn vạch màu container trên tab. Bật “Show container color stripe on tabs” để hiện lại. Chỉ ẩn `.tab-context-line`; không đổi container, màu nhận diện ở nơi khác hay thanh nhấn của mod.
+
+Các tab pin còn được nạp đồng thời hiện thanh màu nhấn dọc bên trái, không viền; pin đã unload mặc định không hiện thanh. Double-click để unload và giữ pin. Trạng thái pin và double-click không áp dụng cho Essential.
+
+Bản 1.7.3 khôi phục thanh nhấn dọc bo tròn. Màu và độ dày dùng các tùy chọn “Indicator color” và “Indicator width”; có thể chuyển thanh sang phải. Các công tắc ẩn pin loaded/unloaded vẫn hoạt động. Tùy chọn màu chấm riêng của bản 1.7.0 không còn được sử dụng.
 
 - Active: xanh đậm `#0047ff`, dày 5px, không viền hoặc bóng đổ quanh vạch.
 - Pin còn được nạp (`pinned`, không `pending`, không Essential): luôn hiện màu nhấn, kể cả khi tab khác đang được chọn. “Được nạp” bao gồm cả trang đang tải và trang đã tải xong.
@@ -13,7 +31,7 @@ Các tab pin còn được nạp đồng thời hiện màu nhấn bên trái, k
 - “Small audio badge on pinned tab favicon”: biểu tượng âm thanh nhỏ 14px ở góc favicon của chính pin, thay cho nút âm thanh riêng có thể tràn sang ô kế bên trong SuperPins. Vẫn bấm mute/unmute được. Essential và tab thường giữ biểu tượng âm thanh native.
 - “Keep loaded Essentials highlighted until unloaded”: Essential còn được nạp giữ nền sáng kiểu selected kể cả khi bạn chuyển sang pin hoặc tab thường. Khi unload, trả về nền bình thường của theme. Hỗ trợ nền sáng/tối theo theme; không áp dụng double-click unload cho Essential.
 - “Small Glance badge above pinned favicon (SuperPins grid)”: Glance nằm ở góc trên bên phải favicon, kích thước 14px, trong đúng ô pin. Khi có cả Glance và âm thanh, âm thanh chuyển sang góc trên bên trái để không chồng nhau. Chỉ điều chỉnh vị trí trong bố cục grid của SuperPins. Vạch nhấn/nền Essential chỉ tác động lên tab chủ, không lan xuống tab Glance lồng bên trong.
-- “Center pinned favicons in their cells (SuperPins grid)”: căn chính giữa favicon của từng pin bằng flex alignment, bỏ margin lệch của SuperPins/Zen. Vạch màu cam ở mép phải là chỉ báo container native và được giữ nguyên; không phải lỗi của vạch nhấn xanh.
+- “Center pinned favicons in their cells (SuperPins grid)”: căn chính giữa favicon của từng pin bằng flex alignment, bỏ margin lệch của SuperPins/Zen. Vạch màu container có thể bật lại bằng “Show container color stripe on tabs”.
 
 ### Giới hạn profile
 
@@ -57,16 +75,16 @@ Tắt hoặc xóa mod trong Zen Mods. Khi Zen đã thoát, xóa `PROFILE/chrome/
 
 Đây là bộ mã độc lập, viết mới, lấy ý tưởng từ [Better Active Tab Indicator](https://github.com/HliasOuzounis/zen-browser-better-active-tab-indicator); không sao chép mã hoặc hình ảnh từ repo không có license đó.
 
-Chưa được xuất bản lên GitHub/Zen Store. Nút Import của Zen sử dụng ID trong kho chính thức, không phải bộ cài cho repo GitHub bất kỳ. Cài local ở trên đưa mod vào cùng danh sách bật/tắt. Để xuất bản, tạo repo `zen-tab-accent-plus`, push mã này, rồi bổ sung URL homepage/style/readme/preferences vào metadata khi gửi lên [theme-store](https://github.com/zen-browser/theme-store). Companion không được chạy bởi kho CSS; phải phân phối riêng. Không hứa hẹn thời gian duyệt hoặc khả năng nhận submission của kho.
+Mã nguồn: [hoangdm23ba14124-cmyk/zen-tab-accent-plus](https://github.com/hoangdm23ba14124-cmyk/zen-tab-accent-plus). Chưa có trên Zen Store. Việc xuất bản lên GitHub không tự đăng ký mod vào kho; dùng bộ cài local ở trên để đưa mod vào danh sách bật/tắt. Companion cần cài riêng vì Zen Mods chỉ chạy CSS.
 
 ```sh
-git remote add origin https://github.com/YOUR_USERNAME/zen-tab-accent-plus.git
-git push -u origin main
+git clone https://github.com/hoangdm23ba14124-cmyk/zen-tab-accent-plus.git
+cd zen-tab-accent-plus
 ```
 
 ## Kiểm tra
 
-Xem [PERFORMANCE.md](PERFORMANCE.md) và [performance-results.json](performance-results.json) cho phép đo RAM và chi phí đổi tab của bản 1.6.0. Script không có vòng lặp polling hay timer lặp: một timer fullscreen lúc mở cửa sổ và một listener double-click dùng chung. Listener được dọn khi đóng cửa sổ hoặc nạp lại script.
+Xem [PERFORMANCE.md](PERFORMANCE.md) và [performance-results.json](performance-results.json) cho phép đo RAM và chi phí đổi tab của bản 1.6.0; kết quả đó không đại diện cho toàn bộ chức năng mới của 1.12.1. Companion hiện có thêm menu, listener khôi phục tab, observer cài đặt và MutationObserver cho bố cục. Các cập nhật được gom bằng requestAnimationFrame, không dùng polling. Listener và observer được dọn khi đóng cửa sổ hoặc nạp lại script.
 
 ```sh
 python3 -m unittest discover -s tests -v

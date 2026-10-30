@@ -1,4 +1,11 @@
 [
+  {"property":"mod.ztap.fill-row","label":"Tự giãn pin lấp đầy hàng chưa đủ ô (vùng pin chính và folder)","type":"checkbox","defaultValue":true},
+  {"property":"mod.ztap.pin-rows","label":"Vùng pin chính — mẫu từng hàng, ví dụ 3,2,4 (trống = số cột chung)","type":"string","defaultValue":""},
+  {"property":"mod.ztap.pin-columns","label":"Vùng pin chính — số cột chung","type":"dropdown","defaultValue":"3","options":[{"label":"1","value":"1"},{"label":"2","value":"2"},{"label":"3","value":"3"},{"label":"4","value":"4"},{"label":"5","value":"5"},{"label":"6","value":"6"},{"label":"Tự động theo SuperPins","value":"auto"}]},
+  {"property":"mod.ztap.folder-rows","label":"Trong folder — mẫu từng hàng, ví dụ 2,4 (trống = số cột folder)","type":"string","defaultValue":""},
+  {"property":"mod.ztap.folder-columns","label":"Trong folder — số cột chung","type":"dropdown","defaultValue":"3","options":[{"label":"1","value":"1"},{"label":"2","value":"2"},{"label":"3","value":"3"},{"label":"4","value":"4"},{"label":"5","value":"5"},{"label":"6","value":"6"},{"label":"Tự động theo SuperPins","value":"auto"}]},
+  {"property":"mod.ztap.hide-pin-selection","label":"Hide enhanced multi-selection highlight on pinned tabs","type":"checkbox","defaultValue":false},
+  {"property":"mod.ztap.show-container-stripe","label":"Show container color stripe on tabs","type":"checkbox","defaultValue":false},
   {"property":"mod.ztap.right","label":"Move indicator to the right","type":"checkbox","defaultValue":false},
   {"property":"mod.ztap.width","label":"Indicator width","type":"dropdown","defaultValue":"5px","options":[{"label":"Thin (3px)","value":"3px"},{"label":"Bold (5px)","value":"5px"},{"label":"Extra bold (7px)","value":"7px"}]},
   {"property":"mod.ztap.color","label":"Indicator color (CSS color)","type":"string","defaultValue":"#0047ff"},

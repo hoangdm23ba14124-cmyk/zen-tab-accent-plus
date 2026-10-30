@@ -24,6 +24,8 @@ These differences are observations from a small sample, not an exact measurement
 
 ## Changes and resource use
 
+The following measurements and implementation notes describe version 1.6.0. Version 1.12.1 also includes per-tab layout persistence, a context-menu entry, preference observers, and a filtered MutationObserver with requestAnimationFrame batching. Its complete resource usage has not been benchmarked here.
+
 - Centering, badges and highlights are CSS-only. No per-tab JavaScript loops, MutationObservers or recurring polling were added.
 - The companion uses one delegated double-click listener, one unload cleanup listener, and a one-shot fullscreen timer on startup. The WeakSet tracks only in-progress unload calls.
 - Double-clicks outside eligible pins now return before requesting computed styles.

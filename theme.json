@@ -3,8 +3,8 @@
   "name": "Zen Tab Accent Plus",
   "description": "Configurable pin indicators, zoom badge, pinned-tab double-click unload and automatic fullscreen on window startup.",
   "author": "Hoangzxje",
-  "version": "1.6.0",
+  "version": "1.12.1",
   "tags": ["tabs", "accessibility"],
   "createdAt": "2026-10-26",
-  "updatedAt": "2026-10-27"
+  "updatedAt": "2026-10-28"
 }
